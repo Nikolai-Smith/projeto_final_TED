@@ -1,0 +1,23 @@
+{% extends 'alunos/base.html' %}
+
+{% block titulo %}
+    Aluno {{aluno.first_name}} {{aluno.last_name}} 
+{% endblock %}
+
+{% block conteudo %}
+
+<div class="card">
+  <div class="card-header">
+    <h4 class="card-title">Dados do aluno</h4>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Nome: {{aluno.first_name}}</h5>
+    <h5 class="card-title">Sobrenome: {{aluno.last_name}}</h5>
+    <h5 class="card-title">E-mail: {{aluno.email}}</h5>
+    <h5 class="card-title">Sexo: {{aluno.sexo}}</h5>
+    <h5 class="card-title">Data de nascimento: {{aluno.birth_date}}</h5>  
+    <a class="btn btn-primary" href="{% url 'listar_alunos' %}">Voltar</a>
+  </div>
+</div>
+
+{% endblock %}

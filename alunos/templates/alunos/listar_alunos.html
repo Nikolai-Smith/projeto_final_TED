@@ -1,0 +1,38 @@
+{% extends 'alunos/base.html' %}
+
+{% block titulo %}
+  Lista de alunos
+{% endblock %}
+
+{% block conteudo %}
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>E-mail</th>
+        <th>Sexo</th>
+        <th>Data de nascimento</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for aluno in alunos %}
+      <tr>
+        <td><a href="{% url 'listar_aluno_id' aluno.id %}"> {{ aluno.first_name }}</a></td>
+        <td><a href="{% url 'listar_aluno_id' aluno.id %}"> {{ aluno.last_name }}</a></td>
+        <td><a href="{% url 'listar_aluno_id' aluno.id %}"> {{ aluno.email }}</a></td>
+        <td><a href="{% url 'listar_aluno_id' aluno.id %}"> {{ aluno.sexo }}</a></td>
+        <td><a href="{% url 'listar_aluno_id' aluno.id %}"> {{ aluno.birth_date }}</a></td>
+        <td>
+          <a class="btn btn-primary" href="{% url 'editar_aluno' aluno.id %}">Editar</a>
+          <a class="btn btn-danger" href="{% url 'remover_aluno' aluno.id %}">Remover</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a class="btn btn-primary" href="{% url 'cadastrar_alunos' %}">Cadastrar</a>
+
+{% endblock %}

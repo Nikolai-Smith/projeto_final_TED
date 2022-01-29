@@ -1,0 +1,31 @@
+{% extends 'alunos/base.html' %}
+
+{% load meus_filtros %}
+
+{% block titulo %}
+  Cadastro de professores
+{% endblock %}
+
+{% block conteudo %}
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      {{ form_professor.username.errors }}
+      <label>Nome de usuário: </label>
+      {{ form_professor.username | addclass:'form-control'}}
+    </div>
+    <div class="form-group">
+      {{ form_professor.password1.errors }}
+      <label>Senha: </label>
+      {{ form_professor.password1 | addclass:'form-control'}}
+    </div>
+    <div class="form-group">
+      {{ form_professor.password2.errors }}
+      <label>Confirme sua senha: </label>
+      {{ form_professor.password2 | addclass:'form-control'}}
+    </div>
+    <div class="form-group">
+      <input type="submit" value="Cadastrar" class="btn btn-primary">
+    </div>
+  </form>
+{% endblock %}
